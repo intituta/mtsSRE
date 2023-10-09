@@ -46,14 +46,13 @@ spec:
             httpGet:
               path: /healthz/live
               port: http
-            initialDelaySeconds: 3
-            periodSeconds: 5
+            initialDelaySeconds: 5
+            periodSeconds: 30
           readinessProbe:
             httpGet:
               path: /healthz/ready
               port: http
             initialDelaySeconds: 1
-            periodSeconds: 10
           envFrom:
             - configMapRef:
                 name: {{ include "sre-course.fullname" . }}
